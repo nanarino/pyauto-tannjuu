@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>medication dumps</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            html,body{
+                font-size:16px !important;
+                overflow:hidden
+            }
+            .form-group{
+                margin-bottom:10px
+            }
+
+            input{
+                font-size:16px !important;
+            }
+            .control-label{
+                text-align:right
+            }
+            h1{
+                font-size:28px !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div class="page-header col-md-6 col-md-offset-3" style="margin-top:0;margin-bottom:0">
+                <h1>XX大药房<small>medication dumps</small></h1>
+            </div>
+            <div class="row">
+                <div class="panel panel-default col-md-12 col-lg-6 col-lg-offset-3" >
+                    <div class="panel-body">
+                        <form class="form-horizontal">
+                            <div class="form-group ">
+                                <label class="col-xs-4 col-sm-3 control-label" for="formGroupInputSmall">姓名</label>
+                                <div class="col-xs-8 col-sm-6">
+                                    <input class="form-control" type="text" v-model="姓名" @blur="test('姓名')">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="col-xs-4 col-sm-3 control-label" for="formGroupInputSmall">性别</label>
+                                <div class="col-xs-8 col-sm-6">
+                                    <input type="radio" name="Sex" value="男" v-model="性别"/>&nbsp;&nbsp;&nbsp;&nbsp;男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="Sex" value="女" v-model="性别"/>&nbsp;&nbsp;&nbsp;&nbsp;女
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="col-xs-4 col-sm-3 control-label" for="formGroupInputSmall">年龄</label>
+                                <div class="col-xs-8 col-sm-6">
+                                    <input class="form-control" type="text" v-model="年龄" @blur="test('年龄')">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="col-xs-4 col-sm-3 control-label" for="formGroupInputSmall">身份证</label>
+                                <div class="col-xs-8 col-sm-6">
+                                    <input class="form-control" type="text" v-model="身份证号码" @blur="test('身份证号码')">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="col-xs-4 col-sm-3 control-label" for="formGroupInputSmall">诊断</label>
+                                <div class="col-xs-8 col-sm-6">
+                                    <input class="form-control" type="text" v-model="诊断">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="col-xs-4 col-sm-3 control-label" for="formGroupInputSmall">商品名称</label>
+                                <div class="col-xs-8 col-sm-6">
+                                    <input class="form-control" type="text" v-model="商品名称">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="col-xs-4 col-sm-3 control-label" for="formGroupInputSmall">商品条码</label>
+                                <div class="col-xs-8 col-sm-6">
+                                    <input class="form-control" type="text" v-model="商品条码" @blur="test('商品条码')">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="col-xs-4 col-sm-3 control-label" for="formGroupInputSmall">数量</label>
+                                <div class="col-xs-8 col-sm-6">
+                                    <input class="form-control" type="text" v-model="数量" @blur="test('数量')">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label class="col-xs-4 col-sm-3 control-label" for="formGroupInputSmall">用法用量</label>
+                                <div class="col-xs-8 col-sm-6">
+                                    <input class="form-control" type="text" v-model="用法用量">
+                                </div>
+                            </div>
+                        </form>
+                        <hr style="margin:5px 0" />
+                        <div class="row">
+                        <input ref="dataTag" style="position: absolute;top: 0;left: 0;opacity: 0;z-index: -10;"/>
+                        <button type="button" class="btn btn-warning col-xs-4 col-xs-offset-1" @click="clear()">清空</button>
+                        <button type="button" class="btn btn-primary col-xs-4 col-xs-offset-2" @click="copy()">复制</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./renderer.js"></script>
+    </body>
+</html>

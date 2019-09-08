@@ -1,0 +1,24 @@
+{
+  "name": "el-formauto",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . 'app' --platform=win32 --arch=x64 --icon=./src/icon.ico --out=./dist --asar --app-version=0.0.1"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^6.0.7",
+    "electron-packager": "^14.0.5"
+  }
+}
