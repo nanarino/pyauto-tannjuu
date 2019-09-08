@@ -1,4 +1,4 @@
-# auto-tannjuu
+# pyauto-tannjuu
 
 ## 定制功能
 
