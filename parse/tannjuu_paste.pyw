@@ -8,6 +8,7 @@ tennjuu = pyperclip.paste()
 try:
     tennjuu = json.loads(tennjuu.replace("，",",").strip())
 except:
+    pyautogui.alert("格式不正确")
     exit()
 secs_between_keys = 0.1
 
@@ -50,5 +51,5 @@ def main():
     paste("数量")
     zcopy("用法用量")
 
-time.sleep(3)
+pyautogui.click()
 main()

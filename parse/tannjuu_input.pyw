@@ -8,6 +8,7 @@ tennjuu = pyautogui.prompt('请输入')
 try:
     tennjuu = json.loads(tennjuu.replace("，",",").strip())
 except:
+    pyautogui.alert("格式不正确")
     exit()
 secs_between_keys = 0.1
 
