@@ -17,43 +17,56 @@ class Storage{
         localStorage.clear()
     }
 }
-
 const initdata = '{\"姓名\":\"\",\"年龄\":\"\",\"性别\":\"男\",\"身份证号码\":\"\",\"诊断\":\"\",\"商品名称\":\"\",\"商品条码\":\"\",\"数量\":\"\",\"用法用量\":\"\"}'
 const re = {
     姓名:'^[\\u4e00-\\u9fa5]*$',
     年龄:'^[0-9]{1,3}$',
     身份证号码:'(^\\d{15}$)|(^\\d{18}$)|(^\\d{17}(\\d|X|x)$)',
-    商品条码:'^\\w*$',
+    商品条码:'[0-9]{9}',
     数量:'^[0-9]*$',
 }
 const sp = "        "
 const vm = new Vue({
     el: '#app',
-    data(){
+    data: function(){
         return JSON.parse(initdata)
     },
     methods: {
-        copy(){
+        copy: function(){
             let dataTag = this.$refs.dataTag
             st.set(this.$data)
             dataTag.value = sp + JSON.stringify(this.$data).replace(/,/g,"，") + sp
             dataTag.select()
             document.execCommand("copy")
+            Swal.fire({
+                position: 'center',
+                type: 'success',
+                title: '复制完成',
+                showConfirmButton: false,
+                timer: 1500
+            })
         },
-        init(){
+        init: function(){
             let data = st.get()
             for(let i in data){
                 this.$data[i] = data[i]
             }
         },
-        clear(){
+        clear:function(){
             Storage.clear()
             this.init()
         },
-        test(type){
+        test:function(type,e){
             if(this[type]===""){return}
             if(this[type].match(new RegExp(re[type],"g"))===null){
-                alert(type+"格式不正确")
+                Swal.fire({
+                    position: 'center',
+                    type: 'warning',
+                    title: type + '填写不合要求',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+                //setTimeout(function(){e.target.focus()},1000)
             }
         }
     },
