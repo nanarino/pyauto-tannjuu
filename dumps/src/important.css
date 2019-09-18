@@ -1,0 +1,18 @@
+html,body{
+    font-size:16px !important;
+    overflow:hidden
+}
+.form-group{
+    margin-bottom:10px
+}
+
+input{
+    font-size:16px !important;
+}
+.control-label{
+    text-align:right;
+    padding-top:7px
+}
+h1{
+    font-size:28px !important;
+}
